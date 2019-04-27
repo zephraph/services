@@ -1,0 +1,23 @@
+{
+  "name": "@zephraph/services",
+  "version": "0.0.1",
+  "description": "A service libraries to make building automation easier",
+  "main": "index.js",
+  "repository": "https://github.com/zephraph/services",
+  "author": "Zephraph <zephraph@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/plugin-retry": "^2.2.0",
+    "@octokit/plugin-throttling": "^2.4.0",
+    "@octokit/rest": "^16.25.0",
+    "axios": "^0.18.0",
+    "circleci-api": "^3.3.2",
+    "dotenv": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^11.13.8",
+    "rollup": "^1.10.1",
+    "typescript": "^3.4.5"
+  }
+}
