@@ -4,20 +4,18 @@ orbs:
   yarn: artsy/yarn@1.1.0
 
 jobs:
-  housekeeping:
-    - yarn/run-script:
-        script: lint
-        description: Linting
-    - yarn/run-script:
-        script: type-check
-        description: Verifying Typescript types
+  build:
+    - yarn/setup
+    - run: yarn lint
+    - run: yarn type-check
+    - run: yarn jest
+    - run: yarn build
 
 workflows:
   main:
     jobs:
       - yarn/update-cache
-      - housekeeping
-      - yarn/jest
+      - build
       - yarn/auto-release:
           # The deploy job is the _only_ job that should have access to our npm
           # tokens. We include a context that has our publish credentials
@@ -28,5 +26,4 @@ workflows:
               only:
                 - master
           requires:
-            - yarn/jest
-            - housekeeping
+            - build

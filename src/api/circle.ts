@@ -1,5 +1,3 @@
-// Module
-import axios from "axios";
 import { Artifact, BuildSummary, CircleCI, CircleCIOptions, GitType, BuildWithSteps } from "circleci-api";
 
 import { safelyFetchEnvs } from "../utils/env";
@@ -122,7 +120,9 @@ export class Circle {
           buildNum || latestBuild.build_num!
         )).filter(artifact => artifact.path.includes(artifactName!))[0];
         if (targetArtifact && targetArtifact.url) {
-          artifact = (await axios.get(targetArtifact.url)).data;
+          artifact = await fetch(targetArtifact.url)
+            .then(res => res.json())
+            .then(res => res.data);
         }
       }
     } catch (error) {
