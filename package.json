@@ -8,11 +8,15 @@
   "repository": "https://github.com/zephraph/services",
   "author": "Zephraph <zephraph@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "type-check": "tsc --pretty --noEmit",
     "emit-types": "tsc --declaration --emitDeclarationOnly --listEmittedFiles --outDir lib",
     "prebuild": "rm -rf lib",
-    "build": "rollup -c rollup.config.ts"
+    "build": "rollup -c rollup.config.ts",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@octokit/plugin-retry": "^2.2.0",
