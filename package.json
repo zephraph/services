@@ -1,7 +1,7 @@
 {
   "name": "@zephraph/services",
   "version": "0.0.1",
-  "description": "A service libraries to make building automation easier",
+  "description": "A set of libraries to make automation easier",
   "main": "lib/services.cjs.js",
   "module": "lib/services.es.js",
   "types": "lib/index.d.ts",
