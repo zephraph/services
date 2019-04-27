@@ -2,14 +2,17 @@ version: 2.1
 
 orbs:
   yarn: artsy/yarn@1.1.0
+  node: artsy/node@0.1.0
 
 jobs:
   build:
-    - yarn/setup
-    - run: yarn lint
-    - run: yarn type-check
-    - run: yarn jest
-    - run: yarn build
+    executor: node/build
+    steps:
+      - yarn/setup
+      - run: yarn lint
+      - run: yarn type-check
+      - run: yarn jest
+      - run: yarn build
 
 workflows:
   main:
